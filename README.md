@@ -29,7 +29,7 @@ This project was deployed to AWS using the Elastic Beanstalk SDK.
 
 It will temporarily be found at [http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/](http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/)
 
-![Deployment Screenshot]("./deployment_screenshot/screenshot1.png")
+![Deployment Screenshot]("/deployment_screenshot/screenshot1.png")
 
 ## RDS & S3
 
@@ -41,17 +41,17 @@ Additional work has been done outside the scope of this project to connect a Pos
 
 This endpoint takes a url as a query parameter and processes an image.
 
-~Query Parameters~
+**Query Parameters**
 + image_url
 
-~Response~
+**Response**
 + Location of image
 
 ### /getImages
 
 This endpoint returns all images saved in the database and and provides the S3 URL for the resource.
 
-~Optional Query Parameter~
+**Optional Query Parameter**
 + user
 
 Using the optional parameter, one can return only images saved to the database by a specific user (ie Joe, Jenny, or Michael)
