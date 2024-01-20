@@ -29,7 +29,7 @@ This project was deployed to AWS using the Elastic Beanstalk SDK.
 
 It will temporarily be found at [http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/](http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/)
 
-![Deployment Screenshot]("/deployment_screenshot/screenshot1.png")
+![Deployment Screenshot](./deployment_screenshot/screenshot1.png)
 
 ## RDS & S3
 
