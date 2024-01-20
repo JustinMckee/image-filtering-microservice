@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from '../util/util.js';
-import {router as filterImageRoute} from "./routes/filterImageRoute.js";
+import {router as imagesRoutes} from "./routes/imagesRoutes.js";
 import cors from "cors";
 
 (async () => {
@@ -41,7 +41,8 @@ import cors from "cors";
     res.status(200).send("Welcome to Image Filter.")
   } );
 
-  app.use("/filterImage", filterImageRoute);
+  app.use("/", imagesRoutes);
+  app.use('/tmp', express.static('./src/tmp'));
 
 
   // Start the Server
