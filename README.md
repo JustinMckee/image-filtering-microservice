@@ -11,17 +11,17 @@ You can clone this repo to run the project locally.
 + Run `$ npm run dev`
 + Server runs at [http://localhost:8082](http://localhost:8082)
 
-## Local curl Requests
+## Making curl Requests
 
-You can use REST endpoint, "/filteredImage" locally:
+You can use REST endpoint, "/filteredImage" locally
 
-`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/filteredImage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2880px-F'`
+`$ curl --location 'http://localhost:8082/filteredImage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2880px-F'`
 
 This will process the image at the url you provide and save to your /tmp directory in your filesystem.
 
 Additionally, you can review the returned headers to see the response code (ie 201, 422, 500) using curl's -I flag:
 
-`curl -I --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/filteredImage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2880px-F'`
+`curl -I --location 'http://localhost:8082/filteredImage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2880px-F'`
 
 ## Elastic Beanstalk deployment
 
@@ -30,6 +30,14 @@ This project was deployed to AWS using the Elastic Beanstalk SDK.
 It will temporarily be found at [http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/](http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/)
 
 ![Deployment Screenshot](./deployment_screenshot/screenshot1.png)
+
+## Remote curl requests
+
+You can curl the REST endpoint, "/filteredImage" locally
+
+`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/filteredImage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2880px-F'`
+
+This will process the image at the url you provide and save to your /tmp directory on the server filesystem.
 
 ## RDS & S3
 
