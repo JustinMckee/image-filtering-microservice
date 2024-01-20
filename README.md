@@ -47,6 +47,8 @@ Additional work has been done outside the scope of this project to connect a Pos
 
 ### /filteredImage
 
+`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/filteredImage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2880px-F'`
+
 This endpoint takes a url as a query parameter and processes an image.
 
 **Query Parameters**
@@ -57,9 +59,13 @@ This endpoint takes a url as a query parameter and processes an image.
 
 ### /getImages
 
+`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/getImages`
+
 This endpoint returns all images saved in the database and and provides the S3 URL for the resource.
 
 **Optional Query Parameter**
 + user
+
+`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/getImages?user=Joe`
 
 Using the optional parameter, one can return only images saved to the database by a specific user (ie Joe, Jenny, or Michael)
