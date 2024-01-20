@@ -59,13 +59,13 @@ This endpoint takes a url as a query parameter and processes an image.
 
 ### /getImages
 
-`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/getImages`
+`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/getImages'`
 
 This endpoint returns all images saved in the database and and provides the S3 URL for the resource.
 
 **Optional Query Parameter**
 + user
 
-`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/getImages?user=Joe`
+`$ curl --location 'http://image-filter-backend-dev.us-east-1.elasticbeanstalk.com/getImages?user=Joe'`
 
 Using the optional parameter, one can return only images saved to the database by a specific user (ie Joe, Jenny, or Michael)
