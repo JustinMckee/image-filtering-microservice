@@ -17,8 +17,7 @@ router.get("/filteredImage/", async (req,res) => {
             res.status(500).send("Image Filtering Error.");
         }
     } else {
-        console.error("filterImage error", req);
-        res.status(500).send("Missing image_url query parameter.");
+        res.status(422).send("Missing image_url query parameter.");
     }
 });
 
@@ -38,7 +37,7 @@ router.post("/postImage", uploadImage.single('file') ,async(req,res) => {
         res.status(201).json({url: req.file.location});
     } else {
         console.error("S3 upload failed", req);
-        res.status(500).send("Image upload failed.");
+        res.status(422).send("Image upload failed.");
     }
 });
 
