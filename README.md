@@ -17,7 +17,7 @@ You can use REST endpoint, "/filteredImage" locally
 
 `$ curl --location 'http://localhost:8082/filteredImage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2880px-F'`
 
-This will process the image at the url you provide and save to your /tmp directory in your filesystem.
+This will process the image at the url you provide and return the processed image in your browser.
 
 Additionally, you can review the returned headers to see the response code (ie 201, 422, 500) using curl's -I flag:
 
