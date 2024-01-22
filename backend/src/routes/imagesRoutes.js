@@ -9,12 +9,22 @@ router.get("/filteredImage/", async (req,res) => {
     const {image_url} = req.query;
     if(image_url) { 
         try {
-            const url = new URL(image_url)
+            const url = new URL(image_url);
             const filteredImageURL = await filterImageFromURL(url);
-            res.status(201).json({location: filteredImageURL});
-        } catch {
+
+            res.sendFile(filteredImageURL, {}, async (err) => {
+                if(err){
+                    console.error('Error sending file', err);
+                    next(err);
+                } else {
+                    await deleteLocalFiles([filteredImageURL]);
+                    return res.status(201);
+                }
+            });
+        } catch(e) {
             console.error("filterImage error");
             res.status(500).send("Image Filtering Error.");
+            return next(e)
         }
     } else {
         res.status(422).send("Missing image_url query parameter.");
@@ -40,15 +50,3 @@ router.post("/postImage", uploadImage.single('file') ,async(req,res) => {
         res.status(422).send("Image upload failed.");
     }
 });
-
-// router.get("/cleanup/", async(req,res) => {
-//     const {location} = req.query;
-//     if(location) {
-//         try {
-//             const removedFile = await deleteLocalFiles([location]);
-//             res.status(201).json({removed: removedFile});
-//         } catch {
-//             res.status(500).send("Remove from filesystem error.");
-//         }
-//     }
-// })
